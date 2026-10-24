@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#110c28">
+  <meta name="description" content="Discover AstroMath Kids Math Games: space-themed math practice across seven worlds, with a 3D Mothership that grows with game progress.">
+  <meta property="og:title" content="AstroMath Kids Math Games">
+  <meta property="og:description" content="Math practice meets a space adventure. Explore seven themed worlds and build progress toward a 3D Mothership.">
+  <meta property="og:image" content="https://play-lh.googleusercontent.com/iR1y5oSgyazeDamI-D4VYfu6lYc1Lu1JZl2czwOJRfazhxOlKZGzUWoTaGrXuc17g8ampAyDrFCu2n9uSH4I7g=w526-h296">
+  <link rel="canonical" href="https://ysc232.github.io/">
+  <title>AstroMath Kids Math Games | Math practice in space</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #110c28;
+      --panel: #211747;
+      --panel-light: #2b2058;
+      --ink: #f7f4ff;
+      --muted: #d3cce8;
+      --cyan: #72e7f4;
+      --gold: #ffd66e;
+      --line: rgba(255,255,255,.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 82% 4%, rgba(55, 118, 183, .35), transparent 30rem),
+        radial-gradient(circle at 10% 34%, rgba(91, 45, 157, .30), transparent 34rem),
+        var(--night);
+      color: var(--ink);
+      font: 1rem/1.6 Rubik, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    a { color: var(--cyan); }
+    a:hover { color: #b5f5fb; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip { position: absolute; left: -9999px; top: 1rem; z-index: 5; background: var(--ink); color: var(--night); padding: .7rem 1rem; }
+    .skip:focus { left: 1rem; }
+    .wrap { width: min(1080px, calc(100% - 2rem)); margin-inline: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; padding-block: 1.1rem; }
+    .wordmark { color: var(--ink); font-size: 1.2rem; font-weight: 800; letter-spacing: .02em; text-decoration: none; }
+    nav a { margin-left: 1rem; font-weight: 650; text-decoration: none; }
+    main { padding-bottom: 3rem; }
+    .hero { display: grid; grid-template-columns: 1fr .92fr; align-items: center; gap: clamp(1.5rem, 5vw, 4rem); padding-block: clamp(2rem, 7vw, 5rem); }
+    .eyebrow { color: var(--cyan); font-size: .84rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { max-width: 13ch; margin: .45rem 0 1rem; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.02; letter-spacing: -.035em; }
+    h2 { margin: 0 0 .65rem; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; }
+    h3 { margin: .1rem 0 .35rem; font-size: 1.1rem; }
+    p { color: var(--muted); }
+    .lead { max-width: 58ch; font-size: clamp(1.08rem, 2vw, 1.25rem); }
+    .button { display: inline-flex; align-items: center; gap: .55rem; margin-top: .75rem; padding: .9rem 1.15rem; border: 2px solid #fff0b8; border-radius: 999px; background: linear-gradient(180deg, #ffe68e, var(--gold)); box-shadow: 0 5px 0 #b48027; color: #231638; font-weight: 850; text-decoration: none; }
+    .button:hover { color: #231638; filter: brightness(1.05); }
+    .release-note { margin-top: 1.6rem; padding: .85rem 1rem; border-left: 4px solid var(--gold); border-radius: .5rem; background: rgba(255,214,110,.09); color: var(--ink); font-size: .94rem; }
+    figure { margin: 0; padding: .65rem; border: 1px solid var(--line); border-radius: 1.4rem; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)); box-shadow: 0 22px 70px rgba(0,0,0,.28); }
+    figure img { display: block; width: 100%; height: auto; border-radius: .9rem; background: var(--panel-light); }
+    figcaption { padding: .65rem .35rem .15rem; color: var(--muted); font-size: .82rem; }
+    section { margin-top: 1.2rem; padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--line); border-radius: 1.4rem; background: rgba(33,23,71,.78); }
+    .section-intro { max-width: 65ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; margin-top: 1.25rem; }
+    .card { min-height: 100%; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--panel-light); }
+    .card p { margin-bottom: 0; font-size: .94rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .75rem; padding: 0; list-style: none; counter-reset: step; }
+    .steps li { padding: 1rem; border-radius: 1rem; background: var(--panel-light); color: var(--muted); counter-increment: step; }
+    .steps li::before { content: counter(step); display: grid; width: 2rem; height: 2rem; margin-bottom: .65rem; place-items: center; border-radius: 50%; background: var(--cyan); color: var(--night); font-weight: 850; }
+    .parent-note { border-color: rgba(255,214,110,.55); }
+    footer { padding-block: 1.5rem 2.5rem; color: var(--muted); font-size: .92rem; }
+    footer a { margin-right: 1rem; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      nav a { margin-left: .55rem; font-size: .9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap">
+    <a class="wordmark" href="#top" aria-label="AstroMath home">AstroMath</a>
+    <nav aria-label="Main navigation">
+      <a href="#worlds">Math worlds</a>
+      <a href="#parents">For parents</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">AstroMath Kids Math Games</p>
+        <h1 id="page-title">Math practice meets a space adventure.</h1>
+        <p class="lead">Solve math questions across seven themed worlds. As game progress reaches checkpoints, parts are added to a 3D Mothership.</p>
+        <a class="button" href="https://play.google.com/store/apps/details?id=com.bahamak.astromath&amp;utm_source=developer_site&amp;utm_medium=owned_site&amp;utm_campaign=homepage">Parents: see AstroMath on Google Play <span aria-hidden="true">↗</span></a>
+        <p class="release-note"><strong>Release note:</strong> This page describes the upcoming game version. Some features shown here may not be in the version currently available on Google Play. Check the listing for the version available today.</p>
+      </div>
+      <figure>
+        <img src="https://play-lh.googleusercontent.com/iR1y5oSgyazeDamI-D4VYfu6lYc1Lu1JZl2czwOJRfazhxOlKZGzUWoTaGrXuc17g8ampAyDrFCu2n9uSH4I7g=w526-h296" alt="Gameplay screenshot from the current AstroMath Google Play listing" width="526" height="296">
+        <figcaption>Real AstroMath artwork from the current Google Play listing.</figcaption>
+      </figure>
+    </section>
+
+    <section id="worlds" aria-labelledby="worlds-title">
+      <p class="eyebrow">Explore through math</p>
+      <h2 id="worlds-title">Seven worlds, seven sets of challenges.</h2>
+      <p class="section-intro">The upcoming game source has 100 levels in each world. Each world focuses on a different math topic.</p>
+      <div class="grid">
+        <article class="card"><h3>Deep Space</h3><p>Addition and subtraction</p></article>
+        <article class="card"><h3>Fire &amp; Magma Planet</h3><p>Multiplication</p></article>
+        <article class="card"><h3>Ice Galaxy</h3><p>Division and order of operations</p></article>
+        <article class="card"><h3>Black Hole Void</h3><p>Mixed review</p></article>
+        <article class="card"><h3>Fraction Nebula</h3><p>Fractions and percentages</p></article>
+        <article class="card"><h3>Negative Zone</h3><p>Negative numbers</p></article>
+        <article class="card"><h3>Equation Maze</h3><p>Equations and variables</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="play-title">
+      <p class="eyebrow">How it plays</p>
+      <h2 id="play-title">Solve. Progress. Build.</h2>
+      <ol class="steps">
+        <li>Read a real math question and choose an answer.</li>
+        <li>Use the game’s feedback as you work through a level.</li>
+        <li>Reach progression checkpoints to reveal parts on the 3D Mothership.</li>
+      </ol>
+    </section>
+
+    <section id="parents" class="parent-note" aria-labelledby="parents-title">
+      <p class="eyebrow">For parents and families</p>
+      <h2 id="parents-title">A clear look at the game.</h2>
+      <p>AstroMath combines math questions with a space-themed game. The upcoming version includes seven math worlds and an upgradeable 3D Mothership. This page makes no promise about school results.</p>
+      <p>The Google Play listing shows the version available in your region, along with ads, in-app purchase, and Data Safety information. Review those details before installing.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.bahamak.astromath&amp;utm_source=developer_site&amp;utm_medium=owned_site&amp;utm_campaign=parent_info">View current Play details</a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>AstroMath Kids Math Games</p>
+    <a href="https://play.google.com/store/apps/details?id=com.bahamak.astromath">Google Play</a>
+    <a href="https://docs.google.com/document/d/1S5CXGxvZiqxFJQl6j-syNVYx1G97NPH1v1w1CCJ0kQQ/edit?usp=sharing">Privacy policy</a>
+  </footer>
+</body>
+</html>
